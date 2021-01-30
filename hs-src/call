@@ -11,5 +11,8 @@ export PATH=$HOME/.mobile-haskell/head.hackage/scripts:$PATH
 # Path to Cabal HEAD binary.
 export PATH=$HOME/.cabal/bin:$PATH
 
+# path to new haskell compiler I built locally
+export PATH=$HOME/.mobile-haskell/mine/bin:$PATH
+
 # Pass everything as the command to call.
 $@
