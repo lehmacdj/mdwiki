@@ -1,4 +1,5 @@
 packages: .
+          ../patched-packages/pandoc-types
 
 repository hackage.mobilehaskell
   url: http://hackage.mobilehaskell.org/
