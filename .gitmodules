@@ -1,0 +1,4 @@
+[submodule "patched-packages/pandoc-types"]
+	path = patched-packages/pandoc-types
+	url = git@github.com:lehmacdj/pandoc-types
+	branch = no-th-patch
