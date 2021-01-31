@@ -4,8 +4,8 @@ ARCHIVE=libHS${LIB}
 
 .PHONY: cabal-build
 cabal-build:
-	$(CABAL) new-configure --disable-shared --enable-static --allow-newer --ghc-option=-fllvmng
-	$(CABAL) new-build --allow-newer --ghc-option=-fllvmng
+	$(CABAL) new-configure --disable-shared --enable-static --allow-newer --ghc-option=-fllvm
+	$(CABAL) new-build --allow-newer --ghc-option=-fllvm
 
 binaries/iOS/$(ARCHIVE).a:
 	CABAL=x86_64-apple-ios-cabal make cabal-build
