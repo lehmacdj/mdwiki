@@ -36,7 +36,7 @@ import qualified Text.Pandoc.Builder as PB
 import Text.Pandoc.Definition
 import Text.Pandoc.Walk
 
--- foreign export ccall "try_parse_commonmark" try_parse_commonmark :: CString -> Ptr CString -> IO Bool
+foreign export ccall "try_parse_commonmark_json_api" try_parse_commonmark_json_api :: CString -> IO CString
 
 -- | Parse a string representing a markdown document into a pandoc ast along
 -- with some extra meta data.
@@ -52,18 +52,12 @@ import Text.Pandoc.Walk
 -- getting a proof of concept so the simplicity of this approach and lack of
 -- likelyhood to segfault makes this approach preferable.
 try_parse_commonmark_json_api ::
-  CString -> Ptr CString -> IO Bool
-try_parse_commonmark_json_api input outStrPtr = do
+  CString -> IO CString
+try_parse_commonmark_json_api input = do
   document <- B.packCString input
   case parseDocument document of
-    Right parsedDocument -> do
-      outStr <- newCStringFromBS (render parsedDocument)
-      poke outStrPtr outStr
-      pure True
-    Left err -> do
-      outStr <- newCStringFromBS (renderError err)
-      poke outStrPtr outStr
-      pure False
+    Right parsedDocument -> newCStringFromBS (render parsedDocument)
+    Left err -> newCStringFromBS (renderError err)
 
 decodeUtf8 :: ByteString -> Text
 decodeUtf8 = E.decodeUtf8With E.lenientDecode
