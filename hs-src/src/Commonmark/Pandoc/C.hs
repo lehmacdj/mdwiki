@@ -131,16 +131,17 @@ data MyParseError
     SourceRangeParseError String String
   | CommonmarkParseError ParseError
   | UnspecifiedError
+  deriving (Show)
 
 instance ToJSON MyParseError where
   toJSON = undefined
   toEncoding = undefined
 
 render :: Pandoc -> ByteString
-render = undefined
+render = BL.toStrict . Json.encode
 
 renderError :: MyParseError -> ByteString
-renderError = undefined
+renderError = B.pack . show
 
 tshow :: Show a => a -> Text
 tshow = T.pack . show
