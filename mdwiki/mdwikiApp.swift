@@ -1,13 +1,13 @@
 //
-//  Haskell_Example_AppApp.swift
-//  Haskell Example App
+//  mdwikiApp.swift
+//  mdwiki
 //
 //  Created by Devin Lehmacher on 1/20/21.
 //
 
 import SwiftUI
 
-struct Haskell_Example_AppApp: App {
+struct mdwikiApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

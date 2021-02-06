@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0377E52D25B958FF0032EF46 /* Haskell_Example_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377E52C25B958FF0032EF46 /* Haskell_Example_AppApp.swift */; };
+		0377E52D25B958FF0032EF46 /* mdwikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377E52C25B958FF0032EF46 /* mdwikiApp.swift */; };
 		0377E52F25B958FF0032EF46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377E52E25B958FF0032EF46 /* ContentView.swift */; };
 		0377E53125B959030032EF46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0377E53025B959030032EF46 /* Assets.xcassets */; };
 		0377E53425B959030032EF46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0377E53325B959030032EF46 /* Preview Assets.xcassets */; };
@@ -23,13 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0377E52925B958FF0032EF46 /* Haskell Example App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haskell Example App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0377E52C25B958FF0032EF46 /* Haskell_Example_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haskell_Example_AppApp.swift; sourceTree = "<group>"; };
+		0377E52925B958FF0032EF46 /* mdwiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mdwiki.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0377E52C25B958FF0032EF46 /* mdwikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mdwikiApp.swift; sourceTree = "<group>"; };
 		0377E52E25B958FF0032EF46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0377E53025B959030032EF46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0377E53325B959030032EF46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0377E53525B959030032EF46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0377E53D25B95E7D0032EF46 /* Haskell Example App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Haskell Example App-Bridging-Header.h"; sourceTree = "<group>"; };
+		0377E53D25B95E7D0032EF46 /* mdwiki-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mdwiki-Bridging-Header.h"; sourceTree = "<group>"; };
 		0377E54225B95EED0032EF46 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		0377E54325B95EED0032EF46 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		0377E54425B95EED0032EF46 /* call */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = call; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				0377E53C25B9590B0032EF46 /* hs-src */,
-				0377E52B25B958FF0032EF46 /* Haskell Example App */,
+				0377E52B25B958FF0032EF46 /* mdwiki */,
 				0377E52A25B958FF0032EF46 /* Products */,
 				0377E55225B95FDA0032EF46 /* Frameworks */,
 			);
@@ -67,23 +67,23 @@
 		0377E52A25B958FF0032EF46 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0377E52925B958FF0032EF46 /* Haskell Example App.app */,
+				0377E52925B958FF0032EF46 /* mdwiki.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0377E52B25B958FF0032EF46 /* Haskell Example App */ = {
+		0377E52B25B958FF0032EF46 /* mdwiki */ = {
 			isa = PBXGroup;
 			children = (
-				0377E52C25B958FF0032EF46 /* Haskell_Example_AppApp.swift */,
+				0377E52C25B958FF0032EF46 /* mdwikiApp.swift */,
 				0377E52E25B958FF0032EF46 /* ContentView.swift */,
 				0377E53025B959030032EF46 /* Assets.xcassets */,
 				0377E53525B959030032EF46 /* Info.plist */,
 				0377E53225B959030032EF46 /* Preview Content */,
-				0377E53D25B95E7D0032EF46 /* Haskell Example App-Bridging-Header.h */,
+				0377E53D25B95E7D0032EF46 /* mdwiki-Bridging-Header.h */,
 				0377E54F25B95F450032EF46 /* main.swift */,
 			);
-			path = "Haskell Example App";
+			path = "mdwiki";
 			sourceTree = "<group>";
 		};
 		0377E53225B959030032EF46 /* Preview Content */ = {
@@ -119,9 +119,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0377E52825B958FF0032EF46 /* Haskell Example App */ = {
+		0377E52825B958FF0032EF46 /* mdwiki */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0377E53825B959030032EF46 /* Build configuration list for PBXNativeTarget "Haskell Example App" */;
+			buildConfigurationList = 0377E53825B959030032EF46 /* Build configuration list for PBXNativeTarget "mdwiki" */;
 			buildPhases = (
 				0377E52525B958FF0032EF46 /* Sources */,
 				0377E52625B958FF0032EF46 /* Frameworks */,
@@ -131,9 +131,9 @@
 			);
 			dependencies = (
 			);
-			name = "Haskell Example App";
-			productName = "Haskell Example App";
-			productReference = 0377E52925B958FF0032EF46 /* Haskell Example App.app */;
+			name = "mdwiki";
+			productName = "mdwiki";
+			productReference = 0377E52925B958FF0032EF46 /* mdwiki.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -151,7 +151,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0377E52425B958FF0032EF46 /* Build configuration list for PBXProject "Haskell Example App" */;
+			buildConfigurationList = 0377E52425B958FF0032EF46 /* Build configuration list for PBXProject "mdwiki" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -164,7 +164,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0377E52825B958FF0032EF46 /* Haskell Example App */,
+				0377E52825B958FF0032EF46 /* mdwiki */,
 			);
 		};
 /* End PBXProject section */
@@ -194,7 +194,7 @@
 				0377E54925B95EEE0032EF46 /* Makefile in Sources */,
 				0377E52F25B958FF0032EF46 /* ContentView.swift in Sources */,
 				0377E55025B95F450032EF46 /* main.swift in Sources */,
-				0377E52D25B958FF0032EF46 /* Haskell_Example_AppApp.swift in Sources */,
+				0377E52D25B958FF0032EF46 /* mdwikiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,11 +324,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Haskell Example App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"mdwiki/Preview Content\"";
 				DEVELOPMENT_TEAM = YJTZ9H869C;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Haskell Example App/Info.plist";
+				INFOPLIST_FILE = "mdwiki/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -338,9 +338,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/hs-src/binaries/iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.lehmacdj.Haskell-Example-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.lehmacdj.mdwiki";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Haskell Example App/Haskell Example App-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "mdwiki/mdwiki-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -354,11 +354,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Haskell Example App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"mdwiki/Preview Content\"";
 				DEVELOPMENT_TEAM = YJTZ9H869C;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Haskell Example App/Info.plist";
+				INFOPLIST_FILE = "mdwiki/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -368,9 +368,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/hs-src/binaries/iOS",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.lehmacdj.Haskell-Example-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.lehmacdj.mdwiki";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Haskell Example App/Haskell Example App-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "mdwiki/mdwiki-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -379,7 +379,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0377E52425B958FF0032EF46 /* Build configuration list for PBXProject "Haskell Example App" */ = {
+		0377E52425B958FF0032EF46 /* Build configuration list for PBXProject "mdwiki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0377E53625B959030032EF46 /* Debug */,
@@ -388,7 +388,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0377E53825B959030032EF46 /* Build configuration list for PBXNativeTarget "Haskell Example App" */ = {
+		0377E53825B959030032EF46 /* Build configuration list for PBXNativeTarget "mdwiki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0377E53925B959030032EF46 /* Debug */,

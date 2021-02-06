@@ -1,9 +1,9 @@
 //
 //  main.swift
-//  Haskell Example App
+//  mdwiki
 //
 //  Created by Devin Lehmacher on 1/20/21.
 //
 
 hs_init(nil, nil)
-Haskell_Example_AppApp.main()
+mdwikiApp.main()
