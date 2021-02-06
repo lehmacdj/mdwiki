@@ -36,7 +36,7 @@ import qualified Text.Pandoc.Builder as PB
 import Text.Pandoc.Definition
 import Text.Pandoc.Walk
 
--- foreign export ccall "try_parse_commonmark_json_api" try_parse_commonmark_json_api :: CString -> IO CString
+foreign export ccall "try_parse_commonmark_json_api" try_parse_commonmark_json_api :: CString -> IO CString
 
 -- | Parse a string representing a markdown document into a pandoc ast along
 -- with some extra meta data.
@@ -197,8 +197,8 @@ parseDocument input = do
               attr' = attrSetKey "data-pos" newSrText attr
           pure $ Span attr' contents
         x -> pure x
-  posAdjustedBlocks <- walkM offsetDataPos blocks
-  pure $ Pandoc meta posAdjustedBlocks
+  -- posAdjustedBlocks <- walkM offsetDataPos blocks
+  pure $ Pandoc meta blocks
 
 -- | use YAML parsing library to parse YAML header into YAML fields
 -- TODO: actually parse YAML Frontmatter instead of just returning an empty

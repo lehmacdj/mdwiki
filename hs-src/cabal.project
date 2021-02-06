@@ -1,4 +1,4 @@
-packages: . ../patched-packages/*
+packages: . ../patched-packages/* ../patched-packages/commonmark-hs/commonmark-pandoc/
 
 -- repository hackage.mobilehaskell
 --   url: http://hackage.mobilehaskell.org/

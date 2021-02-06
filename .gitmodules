@@ -2,3 +2,6 @@
 	path = patched-packages/pandoc-types
 	url = git@github.com:lehmacdj/pandoc-types
 	branch = no-th-patch
+[submodule "patched-packages/commonmark-hs"]
+	path = patched-packages/commonmark-hs
+	url = git@github.com:jgm/commonmark-hs
