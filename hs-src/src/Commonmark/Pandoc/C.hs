@@ -36,7 +36,7 @@ import qualified Text.Pandoc.Builder as PB
 import Text.Pandoc.Definition
 import Text.Pandoc.Walk
 
-foreign export ccall "try_parse_commonmark_json_api" try_parse_commonmark_json_api :: CString -> IO CString
+-- foreign export ccall "try_parse_commonmark_json_api" try_parse_commonmark_json_api :: CString -> IO CString
 
 -- | Parse a string representing a markdown document into a pandoc ast along
 -- with some extra meta data.
@@ -167,7 +167,7 @@ parseSourceRange spanStr =
   where
     sourceRangeP =
       SimpleSourceRange
-        <$> APT.takeWhile (/= '@')
+        <$> (APT.takeWhile (/= '@') <* APT.string "@")
         <*> (APT.decimal <* lcSep)
         <*> (APT.decimal <* seSep)
         <*> (APT.decimal <* lcSep)
