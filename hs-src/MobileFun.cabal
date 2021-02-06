@@ -19,7 +19,7 @@ library
                      , commonmark-pandoc
                      , aeson
                      , bytestring
-                     , pandoc-types == 1.22.1
+                     , pandoc-types
                      , text
                      , yaml
                      , attoparsec
