@@ -7,13 +7,27 @@
 
 import SwiftUI
 
-let markdown = "#Heading\nBody. *Emphasis*.".utf8CString
+let markdown = """
+---
+title: I am a title
+---
+
+# Heading
+Some *emphasized* text.
+"""
+
+let shortMarkdown = """
+Hi
+"""
+
 
 struct ContentView: View {
+    @State var text: String = markdown
     var body: some View {
-        Text(
-            String(cString: markdown.withUnsafeBufferPointer({ ptr in try_parse_commonmark_json_api(UnsafeMutablePointer(mutating: ptr.baseAddress))})))
-            .padding()
+        VStack {
+            TextEditor(text: $text)
+            Text(toPandocAstString(markdown: text))
+        }
     }
 }
 
