@@ -33,12 +33,14 @@ class pandoc_types_tests: XCTestCase {
         let expected = Pandoc(
             meta: [:],
             blocks: [
-                .div(Attr(identifier: "", classes: [], kvPairs: ["data-pos":"source@1:1-2:1"]),
-                     [.para([
-                        .span(Attr(identifier: "", classes: [], kvPairs: ["data-pos":"source@1:1-1:3"]),
-                              [
-                                .str("Hi")
-                              ])])])])
+                .div(
+                    Attr(identifier: "", classes: [], kvPairs: ["data-pos":"source@1:1-2:1"]),
+                    [
+                        .para([
+                            .span(
+                                Attr(identifier: "", classes: [], kvPairs: ["data-pos":"source@1:1-1:3"]),
+                                [
+                                    .str("Hi")])])])])
                             
         XCTAssertEqual(expected, actual)
     }

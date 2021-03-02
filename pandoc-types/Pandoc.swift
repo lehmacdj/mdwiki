@@ -175,6 +175,8 @@ public enum Inline: Equatable {
 }
 
 extension DecodingError {
+    /// Helper that returns a generic decoding error given a codingPath and a detailed description.
+    /// Do try to use one of the more specific overloads first if you want to use this though.
     static func dataCorruptedError(for codingPath: [CodingKey], debugDescription: String) -> DecodingError {
         return DecodingError.dataCorrupted(Context(codingPath: codingPath, debugDescription: debugDescription))
     }
@@ -194,6 +196,9 @@ extension Inline: Decodable {
             let attr = try container.decode(Attr.self)
             let children = try container.decode([Inline].self)
             self = .span(attr, children)
+        case "Emph":
+            let children = try aeson.decode([Inline].self, forKey: .c)
+            self = .emph(children)
         case "Str":
             self = .str(try aeson.decode(String.self, forKey: .c))
         default:
@@ -207,49 +212,6 @@ public enum QuoteType: Equatable {}
 public struct Citation: Equatable {}
 
 public enum MathType: Equatable {}
-
-/// Node representing a data structure encoded by the aeson haskell library.
-public struct AesonNode: Decodable, Equatable {
-    let t: String
-    let c: AesonContent
-}
-
-
-public indirect enum AesonContent: Decodable, Equatable {
-    case string(String)
-    case list([AesonContent])
-    case null
-    case int(Int)
-    case float(Float)
-    case node(AesonNode)
-    
-    public init(from decoder: Decoder) throws {
-        if var unkeyedContainer = try? decoder.unkeyedContainer() {
-            print("parsing as list")
-            self = .list(try unkeyedContainer.decodeAll())
-        } else if let node = try? decoder.singleValueContainer().decode(AesonNode.self) {
-            print("parsing as node")
-            self = .node(node)
-        } else if let string = try? decoder.singleValueContainer().decode(String.self) {
-            print("parsing as string")
-            self = .string(string)
-        } else if true == (try? decoder.singleValueContainer())?.decodeNil() {
-            print("parsing as null")
-            self = .null
-        } else if let float = try? decoder.singleValueContainer().decode(Float.self) {
-            print("parsing as float")
-            self = .float(float)
-        } else if let int = try? decoder.singleValueContainer().decode(Int.self) {
-            print("parsing as int")
-            self = .int(int)
-        }
-
-        throw DecodingError.dataCorrupted(
-            DecodingError.Context(
-                codingPath: decoder.codingPath,
-                debugDescription: "Couldn't parse AesonContent"))
-    }
-}
 
 /// Represents a pandoc document that hasn't been fully converted into a swift data structure yet.
 public struct PrePandoc: Decodable, Equatable {

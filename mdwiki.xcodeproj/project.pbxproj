@@ -30,9 +30,9 @@
 		0377E55025B95F450032EF46 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377E54F25B95F450032EF46 /* main.swift */; };
 		0377E55425B95FDA0032EF46 /* libHSMobileFun.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0377E55325B95FDA0032EF46 /* libHSMobileFun.a */; };
 		0377E55925B960870032EF46 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0377E55825B960870032EF46 /* libiconv.tbd */; };
+		03C8CC8F25EE0DF100FBA4DF /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8CC8E25EE0DF100FBA4DF /* TestData.swift */; };
 		03DA09E525DF8848007B5E7C /* pandoc_types.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; };
 		03DA09E625DF8848007B5E7C /* utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA6425D50B0D005892C9 /* utils.framework */; };
-		03DA09EB25DF9306007B5E7C /* PandocJsonTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA09EA25DF9306007B5E7C /* PandocJsonTestData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +110,7 @@
 		0377E54F25B95F450032EF46 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0377E55325B95FDA0032EF46 /* libHSMobileFun.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHSMobileFun.a; path = "hs-src/binaries/iOS/libHSMobileFun.a"; sourceTree = "<group>"; };
 		0377E55825B960870032EF46 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
-		03DA09EA25DF9306007B5E7C /* PandocJsonTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PandocJsonTestData.swift; sourceTree = "<group>"; };
+		03C8CC8E25EE0DF100FBA4DF /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestData.swift; path = "pandoc-types-tests/TestData.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,9 +164,9 @@
 		035BBA5425D50A85005892C9 /* pandoc-types-tests */ = {
 			isa = PBXGroup;
 			children = (
+				03C8CC8E25EE0DF100FBA4DF /* TestData.swift */,
 				035BBA5525D50A85005892C9 /* pandoc_types_tests.swift */,
 				035BBA5725D50A85005892C9 /* Info.plist */,
-				03DA09EA25DF9306007B5E7C /* PandocJsonTestData.swift */,
 			);
 			path = "pandoc-types-tests";
 			sourceTree = "<group>";
@@ -446,7 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03DA09EB25DF9306007B5E7C /* PandocJsonTestData.swift in Sources */,
+				03C8CC8F25EE0DF100FBA4DF /* TestData.swift in Sources */,
 				035BBA5625D50A85005892C9 /* pandoc_types_tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
