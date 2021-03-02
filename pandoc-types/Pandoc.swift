@@ -201,6 +201,8 @@ extension Inline: Decodable {
             self = .emph(children)
         case "Str":
             self = .str(try aeson.decode(String.self, forKey: .c))
+        case "Underline":
+            self = .underline(try aeson.decode([Inline].self, forKey: .c))
         default:
             fatalError("unimplemented")
         }

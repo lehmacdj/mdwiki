@@ -23,26 +23,29 @@ class pandoc_types_tests: XCTestCase {
         XCTAssertEqual(pandocApiVersion, testDataPandocApiVersion)
     }
     
+    func assertParses<T: Equatable & Decodable>(_ testData: (String, T)) throws {
+        let (json, expected) = testData
+        XCTAssertEqual(try json.unsafeDecode(), expected)
+    }
+    
     func test_parsePandoc_empty() throws {
-        let pandoc: Pandoc = try emptyPandocJson.unsafeDecode()
-        XCTAssertEqual(Pandoc(meta: [:], blocks: []), pandoc)
+        try assertParses(emptyPandoc)
     }
     
     func test_parsePandoc_simpleContent() throws {
-        let actual: Pandoc = try simpleContentPandocJson.unsafeDecode()
-        let expected = Pandoc(
-            meta: [:],
-            blocks: [
-                .div(
-                    Attr(identifier: "", classes: [], kvPairs: ["data-pos":"source@1:1-2:1"]),
-                    [
-                        .para([
-                            .span(
-                                Attr(identifier: "", classes: [], kvPairs: ["data-pos":"source@1:1-1:3"]),
-                                [
-                                    .str("Hi")])])])])
-                            
-        XCTAssertEqual(expected, actual)
+        try assertParses(simpleContentPandoc)
+    }
+    
+    func test_parseInline_emph() throws {
+        try assertParses(emph)
+    }
+    
+    func test_parseInline_str() throws {
+        try assertParses(str)
+    }
+    
+    func test_parseInline_underline() throws {
+        try assertParses(underline)
     }
 
 }

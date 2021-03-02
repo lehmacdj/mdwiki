@@ -5,18 +5,24 @@
 //  Created by Devin Lehmacher on 2/18/21.
 //
 
+@testable import pandoc_types
+
 /// The version of pandoc json that this test data is for.
 let testDataPandocApiVersion = [1,22]
 
-let emptyPandocJson = """
+let emptyPandoc = (
+"""
 {
   "pandoc-api-version": [1,22],
   "meta": {},
   "blocks": []
 }
-"""
+""",
+Pandoc(meta: [:], blocks: [])
+)
 
-let simpleContentPandocJson = """
+let simpleContentPandoc = (
+"""
 {
   "pandoc-api-version": [1, 22],
   "meta": {},
@@ -48,7 +54,19 @@ let simpleContentPandocJson = """
     }
   ]
 }
-"""
+""",
+Pandoc(
+    meta: [:],
+    blocks: [
+        .div(
+            Attr(identifier: "", classes: [], kvPairs: ["data-pos":"source@1:1-2:1"]),
+            [
+                .para([
+                    .span(
+                        Attr(identifier: "", classes: [], kvPairs: ["data-pos":"source@1:1-1:3"]),
+                        [
+                            .str("Hi")])])])])
+)
 
 /// Haskell Type: Meta
 /// Haskell Term:
@@ -163,23 +181,32 @@ let inlinemath = """
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Str "Hello"
-let str = """
-{"t":"Str","c":"Hello"}
+let str = (
 """
+{"t":"Str","c":"Hello"}
+""",
+Inline.str("Hello")
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Emph [Str "Hello"]
-let emph = """
-{"t":"Emph","c":[{"t":"Str","c":"Hello"}]}
+let emph = (
 """
+{"t":"Emph","c":[{"t":"Str","c":"Hello"}]}
+""",
+Inline.emph([.str("Hello")])
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Underline [Str "Hello"]
-let underline = """
-{"t":"Underline","c":[{"t":"Str","c":"Hello"}]}
+let underline = (
 """
+{"t":"Underline","c":[{"t":"Str","c":"Hello"}]}
+""",
+Inline.underline([.str("Hello")])
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
