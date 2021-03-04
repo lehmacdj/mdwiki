@@ -22,12 +22,17 @@ Hi
 
 
 struct ContentView: View {
-    @State var text: String = markdown
+    @State var text: String = shortMarkdown
     var body: some View {
         VStack {
             TextEditor(text: $text)
-            Text(toPandocAstString(markdown: text))
+            if let pandoc = toPandocAst(markdown: text) {
+                TextEditor(text: .constant(String(reflecting: pandoc)))
+            } else {
+                Text("Failed to compile markdown!")
+            }
         }
+        .padding()
     }
 }
 
