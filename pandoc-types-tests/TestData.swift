@@ -120,37 +120,52 @@ let metablocks = """
 /// Haskell Type: QuoteType
 /// Haskell Term:
 /// SingleQuote
-let singlequote = """
-{"t":"SingleQuote"}
+let singlequote = (
 """
+{"t":"SingleQuote"}
+""",
+QuoteType.singleQuote
+)
 
 /// Haskell Type: QuoteType
 /// Haskell Term:
 /// DoubleQuote
-let doublequote = """
-{"t":"DoubleQuote"}
+let doublequote = (
 """
+{"t":"DoubleQuote"}
+""",
+QuoteType.doubleQuote
+)
 
 /// Haskell Type: CitationMode
 /// Haskell Term:
 /// AuthorInText
-let authorintext = """
-{"t":"AuthorInText"}
+let authorintext = (
 """
+{"t":"AuthorInText"}
+""",
+CitationMode.authorInText
+)
 
 /// Haskell Type: CitationMode
 /// Haskell Term:
 /// SuppressAuthor
-let suppressauthor = """
-{"t":"SuppressAuthor"}
+let suppressauthor = (
 """
+{"t":"SuppressAuthor"}
+""",
+CitationMode.suppressAuthor
+)
 
 /// Haskell Type: CitationMode
 /// Haskell Term:
 /// NormalCitation
-let normalcitation = """
-{"t":"NormalCitation"}
+let normalcitation = (
 """
+{"t":"NormalCitation"}
+""",
+CitationMode.normalCitation
+)
 
 /// Haskell Type: Citation
 /// Haskell Term:
@@ -160,23 +175,38 @@ let normalcitation = """
 ///            citationMode = NormalCitation,
 ///            citationNoteNum = 0,
 ///            citationHash = 0}
-let citation = """
-{"citationId":"jameson:unconscious","citationPrefix":[{"t":"Str","c":"cf"}],"citationSuffix":[{"t":"Space"},{"t":"Str","c":"123"}],"citationMode":{"t":"NormalCitation"},"citationNoteNum":0,"citationHash":0}
+let citation = (
 """
+{"citationId":"jameson:unconscious","citationPrefix":[{"t":"Str","c":"cf"}],"citationSuffix":[{"t":"Space"},{"t":"Str","c":"123"}],"citationMode":{"t":"NormalCitation"},"citationNoteNum":0,"citationHash":0}
+""",
+Citation(
+  id: "jameson:unconscious",
+  prefix: [.str("cf")],
+  suffix: [.space, .str("123")],
+  mode: .normalCitation,
+  noteNum: 0,
+  hash: 0)
+)
 
 /// Haskell Type: MathType
 /// Haskell Term:
 /// DisplayMath
-let displaymath = """
-{"t":"DisplayMath"}
+let displaymath = (
 """
+{"t":"DisplayMath"}
+""",
+MathType.displayMath
+)
 
 /// Haskell Type: MathType
 /// Haskell Term:
 /// InlineMath
-let inlinemath = """
-{"t":"InlineMath"}
+let inlinemath = (
 """
+{"t":"InlineMath"}
+""",
+MathType.inlineMath
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
@@ -211,44 +241,62 @@ Inline.underline([.str("Hello")])
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Strong [Str "Hello"]
-let strong = """
-{"t":"Strong","c":[{"t":"Str","c":"Hello"}]}
+let strong = (
 """
+{"t":"Strong","c":[{"t":"Str","c":"Hello"}]}
+""",
+Inline.strong([.str("Hello")])
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Strikeout [Str "Hello"]
-let strikeout = """
-{"t":"Strikeout","c":[{"t":"Str","c":"Hello"}]}
+let strikeout = (
 """
+{"t":"Strikeout","c":[{"t":"Str","c":"Hello"}]}
+""",
+Inline.strikeout([.str("Hello")])
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Superscript [Str "Hello"]
-let superscript = """
-{"t":"Superscript","c":[{"t":"Str","c":"Hello"}]}
+let superscript = (
 """
+{"t":"Superscript","c":[{"t":"Str","c":"Hello"}]}
+""",
+Inline.superscript([.str("Hello")])
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Subscript [Str "Hello"]
-let `subscript` = """
-{"t":"Subscript","c":[{"t":"Str","c":"Hello"}]}
+let `subscript` = (
 """
+{"t":"Subscript","c":[{"t":"Str","c":"Hello"}]}
+""",
+Inline.`subscript`([.str("Hello")])
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// SmallCaps [Str "Hello"]
-let smallcaps = """
-{"t":"SmallCaps","c":[{"t":"Str","c":"Hello"}]}
+let smallcaps = (
 """
+{"t":"SmallCaps","c":[{"t":"Str","c":"Hello"}]}
+""",
+Inline.smallCaps([.str("Hello")])
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Quoted SingleQuote [Str "Hello"]
-let quoted = """
-{"t":"Quoted","c":[{"t":"SingleQuote"},[{"t":"Str","c":"Hello"}]]}
+let quoted = (
 """
+{"t":"Quoted","c":[{"t":"SingleQuote"},[{"t":"Str","c":"Hello"}]]}
+""",
+Inline.quoted(.singleQuote, [.str("Hello")])
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
@@ -263,86 +311,151 @@ let quoted = """
 ///      , Str "@jameson:unconscious"
 ///      , Space
 ///      , Str "12]"]
-let cite = """
-{"t":"Cite","c":[[{"citationId":"jameson:unconscious","citationPrefix":[{"t":"Str","c":"cf"}],"citationSuffix":[{"t":"Space"},{"t":"Str","c":"12"}],"citationMode":{"t":"NormalCitation"},"citationNoteNum":0,"citationHash":0}],[{"t":"Str","c":"[cf"},{"t":"Space"},{"t":"Str","c":"@jameson:unconscious"},{"t":"Space"},{"t":"Str","c":"12]"}]]}
+let cite = (
 """
+{"t":"Cite","c":[[{"citationId":"jameson:unconscious","citationPrefix":[{"t":"Str","c":"cf"}],"citationSuffix":[{"t":"Space"},{"t":"Str","c":"12"}],"citationMode":{"t":"NormalCitation"},"citationNoteNum":0,"citationHash":0}],[{"t":"Str","c":"[cf"},{"t":"Space"},{"t":"Str","c":"@jameson:unconscious"},{"t":"Space"},{"t":"Str","c":"12]"}]]}
+""",
+Inline.cite(
+  [
+    Citation(
+        id: "jameson:unconscious",
+        prefix: [.str("cf")],
+        suffix: [.space, .str("12")],
+        mode: .normalCitation,
+        noteNum: 0,
+        hash: 0),
+  ],
+  [.str("[cf"), .space, .str("@jameson:unconscious"), .space, .str("12]")])
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Code ("", [], [("language", "haskell")]) "foo bar"
-let code = """
-{"t":"Code","c":[["",[],[["language","haskell"]]],"foo bar"]}
+let code = (
 """
+{"t":"Code","c":[["",[],[["language","haskell"]]],"foo bar"]}
+""",
+Inline.code(
+  Attr(
+    identifier: "",
+    classes: [],
+    kvPairs: ["language": "haskell"]),
+  "foo bar")
+)
 
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Space
-let space = """
-{"t":"Space"}
+let space = (
 """
+{"t":"Space"}
+""",
+Inline.space
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// SoftBreak
-let softbreak = """
-{"t":"SoftBreak"}
+let softbreak = (
 """
+{"t":"SoftBreak"}
+""",
+Inline.softBreak
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// LineBreak
-let linebreak = """
-{"t":"LineBreak"}
+let linebreak = (
 """
+{"t":"LineBreak"}
+""",
+Inline.lineBreak
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// RawInline (Format "tex") "\\foo{bar}"
-let rawinline = """
-{"t":"RawInline","c":["tex","\\foo{bar}"]}
+let rawinline = (
 """
+{"t":"RawInline","c":["tex","\\foo{bar}"]}
+""",
+Inline.rawInline(format: "tex", "\\foo{bar}")
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Link ("id",["kls"],[("k1", "v1"), ("k2", "v2")])
 /// [ Str "a", Space, Str "famous", Space, Str "site"]
 /// ("https://www.google.com","google")
-let link = """
-{"t":"Link","c":[["id",["kls"],[["k1","v1"],["k2","v2"]]],[{"t":"Str","c":"a"},{"t":"Space"},{"t":"Str","c":"famous"},{"t":"Space"},{"t":"Str","c":"site"}],["https://www.google.com","google"]]}
+let link = (
 """
+{"t":"Link","c":[["id",["kls"],[["k1","v1"],["k2","v2"]]],[{"t":"Str","c":"a"},{"t":"Space"},{"t":"Str","c":"famous"},{"t":"Space"},{"t":"Str","c":"site"}],["https://www.google.com","google"]]}
+""",
+Inline.link(
+  Attr(
+    identifier: "id",
+    classes: ["kls"],
+    kvPairs: ["k1": "v1", "k2": "v2"]),
+  [.str("a"), .space, .str("famous"), .space, .str("site")],
+  url: "https://www.google.com",
+  title: "google")
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Image ("id",["kls"],[("k1", "v1"), ("k2", "v2")])
 /// [ Str "a", Space, Str "famous", Space, Str "image"]
 /// ("my_img.png","image")
-let image = """
-{"t":"Image","c":[["id",["kls"],[["k1","v1"],["k2","v2"]]],[{"t":"Str","c":"a"},{"t":"Space"},{"t":"Str","c":"famous"},{"t":"Space"},{"t":"Str","c":"image"}],["my_img.png","image"]]}
+let image = (
 """
+{"t":"Image","c":[["id",["kls"],[["k1","v1"],["k2","v2"]]],[{"t":"Str","c":"a"},{"t":"Space"},{"t":"Str","c":"famous"},{"t":"Space"},{"t":"Str","c":"image"}],["my_img.png","image"]]}
+""",
+Inline.image(
+  Attr(
+    identifier: "id",
+    classes: ["kls"],
+    kvPairs: ["k1": "v1", "k2": "v2"]),
+  [.str("a"), .space, .str("famous"), .space, .str("image")],
+  url: "my_img.png",
+  title: "image")
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Note [Para [Str "Hello"]]
-let note = """
-{"t":"Note","c":[{"t":"Para","c":[{"t":"Str","c":"Hello"}]}]}
+let note = (
 """
+{"t":"Note","c":[{"t":"Para","c":[{"t":"Str","c":"Hello"}]}]}
+""",
+Inline.note([.para([.str("Hello")])])
+)
 
 /// Haskell Type: Inline
 /// Haskell Term:
 /// Span ("id", ["kls"], [("k1", "v1"), ("k2", "v2")]) [Str "Hello"]
-let span = """
-{"t":"Span","c":[["id",["kls"],[["k1","v1"],["k2","v2"]]],[{"t":"Str","c":"Hello"}]]}
+let span = (
 """
-
-
+{"t":"Span","c":[["id",["kls"],[["k1","v1"],["k2","v2"]]],[{"t":"Str","c":"Hello"}]]}
+""",
+Inline.span(
+  Attr(
+    identifier: "id",
+    classes: ["kls"],
+    kvPairs: ["k1": "v1", "k2": "v2"]),
+  [.str("Hello")])
+)
 
 /// Haskell Type: Block
 /// Haskell Term:
 /// Plain [Str "Hello"]
-let plain = """
-{"t":"Plain","c":[{"t":"Str","c":"Hello"}]}
+let plain = (
 """
+{"t":"Plain","c":[{"t":"Str","c":"Hello"}]}
+""",
+Block.plain([.str("Hello")])
+)
 
 /// Haskell Type: Block
 /// Haskell Term:

@@ -119,6 +119,10 @@ private enum AesonNodeKeys: String, CodingKey {
     case c = "c"
 }
 
+private enum AesonTypeOnlyKeys: String, CodingKey {
+    case t = "t"
+}
+
 private extension UnkeyedDecodingContainer {
     mutating func decodeAll<T: Decodable>() throws -> [T] {
         var result = [T]()
@@ -158,6 +162,7 @@ public enum Inline: Equatable {
     case underline([Inline])
     case strong([Inline])
     case strikeout([Inline])
+    case `subscript`([Inline])
     case superscript([Inline])
     case smallCaps([Inline])
     case quoted(QuoteType, [Inline])
@@ -209,11 +214,86 @@ extension Inline: Decodable {
     }
 }
 
-public enum QuoteType: Equatable {}
+public enum QuoteType: Equatable {
+    case singleQuote
+    case doubleQuote
+}
 
-public struct Citation: Equatable {}
+extension QuoteType: Decodable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: AesonTypeOnlyKeys.self)
+        let t = try container.decode(String.self, forKey: .t)
+        switch t {
+        case "SingleQuote":
+            self = .singleQuote
+        case "DoubleQuote":
+            self = .doubleQuote
+        default:
+            throw DecodingError.dataCorruptedError(forKey: .t, in: container, debugDescription: "failed to parse QuoteType")
+        }
+    }
+}
 
-public enum MathType: Equatable {}
+public enum CitationMode {
+    case authorInText
+    case suppressAuthor
+    case normalCitation
+}
+
+extension CitationMode: Decodable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: AesonTypeOnlyKeys.self)
+        let t = try container.decode(String.self, forKey: .t)
+        switch t {
+        case "AuthorInText":
+            self = .authorInText
+        case "SuppressAuthor":
+            self = .suppressAuthor
+        case "NormalCitation":
+            self = .normalCitation
+        default:
+            throw DecodingError.dataCorruptedError(forKey: .t, in: container, debugDescription: "failed to parse CitationMode")
+        }
+    }
+}
+
+public struct Citation: Decodable, Equatable {
+    let id: String
+    let prefix: [Inline]
+    let suffix: [Inline]
+    let mode: CitationMode
+    let noteNum: Int
+    let hash: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case id = "citationId"
+        case prefix = "citationPrefix"
+        case suffix = "citationSuffix"
+        case mode = "citationMode"
+        case noteNum = "citationNoteNum"
+        case hash = "citationHash"
+    }
+}
+
+public enum MathType: Equatable {
+    case displayMath
+    case inlineMath
+}
+
+extension MathType: Decodable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: AesonTypeOnlyKeys.self)
+        let t = try container.decode(String.self, forKey: .t)
+        switch t {
+        case "DisplayMath":
+            self = .displayMath
+        case "InlineMath":
+            self = .inlineMath
+        default:
+            throw DecodingError.dataCorruptedError(forKey: .t, in: container, debugDescription: "failed to parse MathType")
+        }
+    }
+}
 
 /// Represents a pandoc document that hasn't been fully converted into a swift data structure yet.
 public struct PrePandoc: Decodable, Equatable {
