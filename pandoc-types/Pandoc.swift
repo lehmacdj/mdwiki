@@ -143,15 +143,33 @@ extension Block: Decodable {
         let type = try aeson.decode(String.self, forKey: .t)
         
         switch type {
+        case "Plain":
+            self = .plain(try aeson.decode([Inline].self, forKey: .c))
+        case "Para":
+            self = .para(try aeson.decode([Inline].self, forKey: .c))
+        case "LineBlock":
+            self = .lineBlock([[.str("Hello")], [.str("Main")]])
+        case "CodeBlock":
+            var container = try aeson.nestedUnkeyedContainer(forKey: .c)
+            let attr = try container.decode(Attr.self)
+            let content = try container.decode(String.self)
+            self = .codeBlock(attr, content)
+        case "RawBlock":
+            var container = try aeson.nestedUnkeyedContainer(forKey: .c)
+            let format = try container.decode(String.self)
+            let content = try container.decode(String.self)
+            self = .rawBlock(format: format, content)
+        case "BlockQuote":
+            self = .blockQuote(try aeson.decode([Block].self, forKey: .c))
         case "Div":
             var container = try aeson.nestedUnkeyedContainer(forKey: .c)
             let attr = try container.decode(Attr.self)
             let children = try container.decode([Block].self)
             self = .div(attr, children)
-        case "Para":
-            self = .para(try aeson.decode([Inline].self, forKey: .c))
+        case "Null":
+            self = .null
         default:
-            fatalError("unimplemented")
+            throw DecodingError.dataCorruptedError(forKey: .t, in: aeson, debugDescription: "unknown variant of Block")
         }
     }
 }
@@ -196,11 +214,6 @@ extension Inline: Decodable {
         let type = try aeson.decode(String.self, forKey: .t)
         
         switch type {
-        case "Span":
-            var container = try aeson.nestedUnkeyedContainer(forKey: .c)
-            let attr = try container.decode(Attr.self)
-            let children = try container.decode([Inline].self)
-            self = .span(attr, children)
         case "Emph":
             let children = try aeson.decode([Inline].self, forKey: .c)
             self = .emph(children)
@@ -208,8 +221,62 @@ extension Inline: Decodable {
             self = .str(try aeson.decode(String.self, forKey: .c))
         case "Underline":
             self = .underline(try aeson.decode([Inline].self, forKey: .c))
+        case "Strong":
+            self = .strong(try aeson.decode([Inline].self, forKey: .c))
+        case "Strikeout":
+            self = .strikeout(try aeson.decode([Inline].self, forKey: .c))
+        case "Superscript":
+            self = .superscript(try aeson.decode([Inline].self, forKey: .c))
+        case "Subscript":
+            self = .subscript(try aeson.decode([Inline].self, forKey: .c))
+        case "SmallCaps":
+            self = .smallCaps(try aeson.decode([Inline].self, forKey: .c))
+        case "Cite":
+            var container = try aeson.nestedUnkeyedContainer(forKey: .c)
+            let citations = try container.decode([Citation].self)
+            let children = try container.decode([Inline].self)
+            self = .cite(citations, children)
+        case "Code":
+            var container = try aeson.nestedUnkeyedContainer(forKey: .c)
+            let attr = try container.decode(Attr.self)
+            let contents = try container.decode(String.self)
+            self = .code(attr, contents)
+        case "Space":
+            self = .space
+        case "SoftBreak":
+            self = .softBreak
+        case "LineBreak":
+            self = .lineBreak
+        case "RawInline":
+            var container = try aeson.nestedUnkeyedContainer(forKey: .c)
+            let format = try container.decode(String.self)
+            let contents = try container.decode(String.self)
+            self = .rawInline(format: format, contents)
+        case "Link":
+            var container = try aeson.nestedUnkeyedContainer(forKey: .c)
+            let attr = try container.decode(Attr.self)
+            let children = try container.decode([Inline].self)
+            var urlTitleContainer = try container.nestedUnkeyedContainer()
+            let url = try urlTitleContainer.decode(String.self)
+            let title = try urlTitleContainer.decode(String.self)
+            self = .link(attr, children, url: url, title: title)
+        case "Image":
+            var container = try aeson.nestedUnkeyedContainer(forKey: .c)
+            let attr = try container.decode(Attr.self)
+            let children = try container.decode([Inline].self)
+            var urlTitleContainer = try container.nestedUnkeyedContainer()
+            let url = try urlTitleContainer.decode(String.self)
+            let title = try urlTitleContainer.decode(String.self)
+            self = .image(attr, children, url: url, title: title)
+        case "Note":
+            self = .note(try aeson.decode([Block].self, forKey: .c))
+        case "Span":
+            var container = try aeson.nestedUnkeyedContainer(forKey: .c)
+            let attr = try container.decode(Attr.self)
+            let children = try container.decode([Inline].self)
+            self = .span(attr, children)
         default:
-            fatalError("unimplemented")
+            throw DecodingError.dataCorruptedError(forKey: .t, in: aeson, debugDescription: "unknown variant of Inline")
         }
     }
 }

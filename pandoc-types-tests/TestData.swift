@@ -379,7 +379,7 @@ Inline.lineBreak
 /// RawInline (Format "tex") "\\foo{bar}"
 let rawinline = (
 """
-{"t":"RawInline","c":["tex","\\foo{bar}"]}
+{"t":"RawInline","c":["tex","\\\\foo{bar}"]}
 """,
 Inline.rawInline(format: "tex", "\\foo{bar}")
 )
@@ -493,7 +493,7 @@ Block.codeBlock(
 /// Haskell Term:
 /// RawBlock (Format "tex") "\\foo{bar}"
 let rawblock = ("""
-{"t":"RawBlock","c":["tex","\\foo{bar}"]}
+{"t":"RawBlock","c":["tex","\\\\foo{bar}"]}
 """,
 Block.rawBlock(
   format: "tex",
