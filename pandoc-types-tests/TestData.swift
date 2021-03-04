@@ -460,37 +460,54 @@ Block.plain([.str("Hello")])
 /// Haskell Type: Block
 /// Haskell Term:
 /// Para [Str "Hello"]
-let para = """
+let para = ("""
 {"t":"Para","c":[{"t":"Str","c":"Hello"}]}
-"""
+""",
+Block.para([.str("Hello")])
+)
 
 /// Haskell Type: Block
 /// Haskell Term:
 /// LineBlock [[Str "Hello"], [Str "Moin"]]
-let lineblock = """
+let lineblock = ("""
 {"t":"LineBlock","c":[[{"t":"Str","c":"Hello"}],[{"t":"Str","c":"Moin"}]]}
-"""
+""",
+Block.lineBlock([[.str("Hello")], [.str("Main")]])
+)
 
 /// Haskell Type: Block
 /// Haskell Term:
 /// CodeBlock ("id", ["kls"], [("k1", "v1"), ("k2", "v2")]) "Foo Bar"
-let codeblock = """
+let codeblock = ("""
 {"t":"CodeBlock","c":[["id",["kls"],[["k1","v1"],["k2","v2"]]],"Foo Bar"]}
-"""
+""",
+Block.codeBlock(
+  Attr(
+    identifier: "id",
+    classes: ["kls"],
+    kvPairs: ["k1": "v1", "k2": "v2"]),
+  "Foo Bar")
+)
 
 /// Haskell Type: Block
 /// Haskell Term:
 /// RawBlock (Format "tex") "\\foo{bar}"
-let rawblock = """
+let rawblock = ("""
 {"t":"RawBlock","c":["tex","\\foo{bar}"]}
-"""
+""",
+Block.rawBlock(
+  format: "tex",
+  "\\foo{bar}")
+)
 
 /// Haskell Type: Block
 /// Haskell Term:
 /// BlockQuote [Para [Str "Hello"]]
-let blockquote = """
+let blockquote = ("""
 {"t":"BlockQuote","c":[{"t":"Para","c":[{"t":"Str","c":"Hello"}]}]}
-"""
+""",
+Block.blockQuote([.para([.str("Hello")])])
+)
 
 /// Haskell Type: Block
 /// Haskell Term:
@@ -646,12 +663,21 @@ let table = """
 /// Haskell Type: Block
 /// Haskell Term:
 /// Div ("id", ["kls"], [("k1", "v1"), ("k2", "v2")]) [Para [Str "Hello"]]
-let div = """
+let div = ("""
 {"t":"Div","c":[["id",["kls"],[["k1","v1"],["k2","v2"]]],[{"t":"Para","c":[{"t":"Str","c":"Hello"}]}]]}
-"""
+""",
+Block.div(
+  Attr(
+    identifier: "id",
+    classes: ["kls"],
+    kvPairs: ["k1": "v1", "k2": "v2"]),
+  [.para([.str("Hello")])])
+)
 
 /// Haskell Type: Block
 /// Haskell Term: / Null
-let null = """
+let null = ("""
 {"t":"Null"}
-"""
+""",
+Block.null
+)

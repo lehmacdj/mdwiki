@@ -149,4 +149,32 @@ class pandoc_types_tests: XCTestCase {
     func test_parseBlock_plain() throws {
         try assertParses(plain)
     }
+    
+    func test_parseBlock_para() throws {
+        try assertParses(para)
+    }
+    
+    func test_parseBlock_lineBlock() throws {
+        try assertParses(lineblock)
+    }
+    
+    func test_parseBlock_codeBlock() throws {
+        try assertParses(codeblock)
+    }
+    
+    func test_parseBlock_rawBlock() throws {
+        try assertParses(rawblock)
+    }
+    
+    func test_parseBlock_blockQuote() throws {
+        try assertParses(blockquote)
+    }
+    
+    func test_parseBlock_div() throws {
+        try assertParses(div)
+    }
+    
+    func test_parseBlock_null() throws {
+        try assertParses(null)
+    }
 }
