@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0314AD5525FDE1760033722A /* QuillEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314AD5425FDE1760033722A /* QuillEditor.swift */; };
 		035BBA3F25D4E862005892C9 /* pandoc_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 035BBA3D25D4E862005892C9 /* pandoc_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		035BBA4225D4E862005892C9 /* pandoc_types.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; };
 		035BBA4325D4E862005892C9 /* pandoc_types.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -82,6 +83,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0314AD5425FDE1760033722A /* QuillEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuillEditor.swift; sourceTree = "<group>"; };
 		035BBA3B25D4E862005892C9 /* pandoc_types.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = pandoc_types.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		035BBA3D25D4E862005892C9 /* pandoc_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pandoc_types.h; sourceTree = "<group>"; };
 		035BBA3E25D4E862005892C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				0377E53D25B95E7D0032EF46 /* mdwiki-Bridging-Header.h */,
 				0377E54F25B95F450032EF46 /* main.swift */,
 				035BBA4C25D50645005892C9 /* Commonmark.swift */,
+				0314AD5425FDE1760033722A /* QuillEditor.swift */,
 			);
 			path = mdwiki;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				0377E52F25B958FF0032EF46 /* ContentView.swift in Sources */,
 				035BBA4D25D50645005892C9 /* Commonmark.swift in Sources */,
 				0377E55025B95F450032EF46 /* main.swift in Sources */,
+				0314AD5525FDE1760033722A /* QuillEditor.swift in Sources */,
 				0377E52D25B958FF0032EF46 /* mdwikiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

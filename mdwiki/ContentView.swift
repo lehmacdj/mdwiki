@@ -25,6 +25,7 @@ struct ContentView: View {
     @State var text: String = shortMarkdown
     var body: some View {
         VStack {
+            QuillEditor()
             TextEditor(text: $text)
             if let pandoc = toPandocAst(markdown: text) {
                 TextEditor(text: .constant(String(reflecting: pandoc)))
