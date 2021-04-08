@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0314AD5525FDE1760033722A /* QuillEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314AD5425FDE1760033722A /* QuillEditor.swift */; };
+		0355206A261EBD070071A0D1 /* Delta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03552069261EBD060071A0D1 /* Delta.swift */; };
+		0355206F261EBD8A0071A0D1 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0355206E261EBD8A0071A0D1 /* Source.swift */; };
+		03552074261EC0FC0071A0D1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03552073261EC0FC0071A0D1 /* Utils.swift */; };
+		03552079261EC69F0071A0D1 /* NSExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03552078261EC69F0071A0D1 /* NSExtensions.swift */; };
 		035BBA3F25D4E862005892C9 /* pandoc_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 035BBA3D25D4E862005892C9 /* pandoc_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		035BBA4225D4E862005892C9 /* pandoc_types.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; };
 		035BBA4325D4E862005892C9 /* pandoc_types.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -84,6 +88,10 @@
 
 /* Begin PBXFileReference section */
 		0314AD5425FDE1760033722A /* QuillEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuillEditor.swift; sourceTree = "<group>"; };
+		03552069261EBD060071A0D1 /* Delta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delta.swift; sourceTree = "<group>"; };
+		0355206E261EBD8A0071A0D1 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		03552073261EC0FC0071A0D1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		03552078261EC69F0071A0D1 /* NSExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSExtensions.swift; sourceTree = "<group>"; };
 		035BBA3B25D4E862005892C9 /* pandoc_types.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = pandoc_types.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		035BBA3D25D4E862005892C9 /* pandoc_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pandoc_types.h; sourceTree = "<group>"; };
 		035BBA3E25D4E862005892C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,6 +161,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03552068261EBCD80071A0D1 /* quill-models */ = {
+			isa = PBXGroup;
+			children = (
+				03552069261EBD060071A0D1 /* Delta.swift */,
+				0355206E261EBD8A0071A0D1 /* Source.swift */,
+			);
+			path = "quill-models";
+			sourceTree = "<group>";
+		};
 		035BBA3C25D4E862005892C9 /* pandoc-types */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +196,7 @@
 				035BBA6625D50B0D005892C9 /* utils.h */,
 				035BBA6725D50B0D005892C9 /* Info.plist */,
 				035BBA7325D50B27005892C9 /* StringExtensions.swift */,
+				03552078261EC69F0071A0D1 /* NSExtensions.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -219,6 +237,8 @@
 				0377E54F25B95F450032EF46 /* main.swift */,
 				035BBA4C25D50645005892C9 /* Commonmark.swift */,
 				0314AD5425FDE1760033722A /* QuillEditor.swift */,
+				03552068261EBCD80071A0D1 /* quill-models */,
+				03552073261EC0FC0071A0D1 /* Utils.swift */,
 			);
 			path = mdwiki;
 			sourceTree = "<group>";
@@ -458,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03552079261EC69F0071A0D1 /* NSExtensions.swift in Sources */,
 				035BBA7425D50B27005892C9 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +487,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0355206F261EBD8A0071A0D1 /* Source.swift in Sources */,
+				0355206A261EBD070071A0D1 /* Delta.swift in Sources */,
+				03552074261EC0FC0071A0D1 /* Utils.swift in Sources */,
 				0377E54925B95EEE0032EF46 /* Makefile in Sources */,
 				0377E52F25B958FF0032EF46 /* ContentView.swift in Sources */,
 				035BBA4D25D50645005892C9 /* Commonmark.swift in Sources */,
