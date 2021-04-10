@@ -12,7 +12,7 @@
 		0355206F261EBD8A0071A0D1 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0355206E261EBD8A0071A0D1 /* Source.swift */; };
 		03552074261EC0FC0071A0D1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03552073261EC0FC0071A0D1 /* Utils.swift */; };
 		03552079261EC69F0071A0D1 /* NSExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03552078261EC69F0071A0D1 /* NSExtensions.swift */; };
-		035520AF262170880071A0D1 /* editor-ui.js in Resources */ = {isa = PBXBuildFile; fileRef = 035520AE262170880071A0D1 /* editor-ui.js */; };
+		035520BA262172E90071A0D1 /* editor-ui.js in Resources */ = {isa = PBXBuildFile; fileRef = 035520B9262172E90071A0D1 /* editor-ui.js */; };
 		035BBA3F25D4E862005892C9 /* pandoc_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 035BBA3D25D4E862005892C9 /* pandoc_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		035BBA4225D4E862005892C9 /* pandoc_types.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; };
 		035BBA4325D4E862005892C9 /* pandoc_types.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -27,11 +27,6 @@
 		0377E52F25B958FF0032EF46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377E52E25B958FF0032EF46 /* ContentView.swift */; };
 		0377E53125B959030032EF46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0377E53025B959030032EF46 /* Assets.xcassets */; };
 		0377E53425B959030032EF46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0377E53325B959030032EF46 /* Preview Assets.xcassets */; };
-		0377E54825B95EEE0032EF46 /* src in Resources */ = {isa = PBXBuildFile; fileRef = 0377E54225B95EED0032EF46 /* src */; };
-		0377E54A25B95EEE0032EF46 /* call in Resources */ = {isa = PBXBuildFile; fileRef = 0377E54425B95EED0032EF46 /* call */; };
-		0377E54B25B95EEE0032EF46 /* cabal.project in Resources */ = {isa = PBXBuildFile; fileRef = 0377E54525B95EED0032EF46 /* cabal.project */; };
-		0377E54C25B95EEE0032EF46 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0377E54625B95EEE0032EF46 /* LICENSE */; };
-		0377E54D25B95EEE0032EF46 /* MobileFun.cabal in Resources */ = {isa = PBXBuildFile; fileRef = 0377E54725B95EEE0032EF46 /* MobileFun.cabal */; };
 		0377E55025B95F450032EF46 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377E54F25B95F450032EF46 /* main.swift */; };
 		0377E55425B95FDA0032EF46 /* libHSMobileFun.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0377E55325B95FDA0032EF46 /* libHSMobileFun.a */; };
 		0377E55925B960870032EF46 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0377E55825B960870032EF46 /* libiconv.tbd */; };
@@ -92,7 +87,7 @@
 		0355206E261EBD8A0071A0D1 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		03552073261EC0FC0071A0D1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		03552078261EC69F0071A0D1 /* NSExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSExtensions.swift; sourceTree = "<group>"; };
-		035520AE262170880071A0D1 /* editor-ui.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "editor-ui.js"; path = "editor-ui/out/editor-ui.js"; sourceTree = "<group>"; };
+		035520B9262172E90071A0D1 /* editor-ui.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "editor-ui.js"; path = "editor-ui/out/editor-ui.js"; sourceTree = "<group>"; };
 		035BBA3B25D4E862005892C9 /* pandoc_types.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = pandoc_types.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		035BBA3D25D4E862005892C9 /* pandoc_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pandoc_types.h; sourceTree = "<group>"; };
 		035BBA3E25D4E862005892C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,12 +107,6 @@
 		0377E53325B959030032EF46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0377E53525B959030032EF46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0377E53D25B95E7D0032EF46 /* mdwiki-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mdwiki-Bridging-Header.h"; sourceTree = "<group>"; };
-		0377E54225B95EED0032EF46 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
-		0377E54325B95EED0032EF46 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		0377E54425B95EED0032EF46 /* call */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = call; sourceTree = "<group>"; };
-		0377E54525B95EED0032EF46 /* cabal.project */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cabal.project; sourceTree = "<group>"; };
-		0377E54625B95EEE0032EF46 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		0377E54725B95EEE0032EF46 /* MobileFun.cabal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MobileFun.cabal; sourceTree = "<group>"; };
 		0377E54F25B95F450032EF46 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0377E55325B95FDA0032EF46 /* libHSMobileFun.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHSMobileFun.a; path = "markdown-engine/binaries/iOS/libHSMobileFun.a"; sourceTree = "<group>"; };
 		0377E55825B960870032EF46 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -205,14 +194,12 @@
 		0377E52025B958FF0032EF46 = {
 			isa = PBXGroup;
 			children = (
-				035520AE262170880071A0D1 /* editor-ui.js */,
-				0377E53C25B9590B0032EF46 /* markdown-engine */,
 				0377E52B25B958FF0032EF46 /* mdwiki */,
 				035BBA3C25D4E862005892C9 /* pandoc-types */,
 				035BBA6525D50B0D005892C9 /* utils */,
 				035BBA5425D50A85005892C9 /* pandoc-types-tests */,
 				0377E52A25B958FF0032EF46 /* Products */,
-				0377E55225B95FDA0032EF46 /* Frameworks */,
+				0377E55225B95FDA0032EF46 /* Dependencies */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,26 +240,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		0377E53C25B9590B0032EF46 /* markdown-engine */ = {
+		0377E55225B95FDA0032EF46 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				0377E54525B95EED0032EF46 /* cabal.project */,
-				0377E54425B95EED0032EF46 /* call */,
-				0377E54625B95EEE0032EF46 /* LICENSE */,
-				0377E54325B95EED0032EF46 /* Makefile */,
-				0377E54725B95EEE0032EF46 /* MobileFun.cabal */,
-				0377E54225B95EED0032EF46 /* src */,
-			);
-			path = "markdown-engine";
-			sourceTree = "<group>";
-		};
-		0377E55225B95FDA0032EF46 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
+				035520B9262172E90071A0D1 /* editor-ui.js */,
 				0377E55825B960870032EF46 /* libiconv.tbd */,
 				0377E55325B95FDA0032EF46 /* libHSMobileFun.a */,
 			);
-			name = Frameworks;
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,12 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0377E54D25B95EEE0032EF46 /* MobileFun.cabal in Resources */,
-				035520AF262170880071A0D1 /* editor-ui.js in Resources */,
-				0377E54C25B95EEE0032EF46 /* LICENSE in Resources */,
-				0377E54A25B95EEE0032EF46 /* call in Resources */,
-				0377E54B25B95EEE0032EF46 /* cabal.project in Resources */,
-				0377E54825B95EEE0032EF46 /* src in Resources */,
+				035520BA262172E90071A0D1 /* editor-ui.js in Resources */,
 				0377E53425B959030032EF46 /* Preview Assets.xcassets in Resources */,
 				0377E53125B959030032EF46 /* Assets.xcassets in Resources */,
 			);
