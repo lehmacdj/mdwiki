@@ -19,16 +19,6 @@ let helloWorldHtml = """
   <p>Some initial <strong>bold</strong> text</p>
   <p><br></p>
 </div>
-
-<!-- Include the Quill library -->
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-
-<!-- Initialize Quill editor -->
-<script>
-  var quill = new Quill('#editor', {
-    theme: 'snow'
-  });
-</script>
 """
 
 struct QuillEditor: UIViewRepresentable {
@@ -46,10 +36,23 @@ struct QuillEditor: UIViewRepresentable {
         return Coordinator()
     }
     
+    private var editorUiScript: String {
+        guard let filepath = Bundle.main.path(forResource: "editor-ui", ofType: "js") else {
+            log("file editor-ui.js not present in bundle, returning empty contents for script")
+            return ""
+        }
+        do {
+            return try String(contentsOfFile: filepath)
+        } catch {
+            log("unable to read editor-ui.js, returning empty contents for script")
+            return ""
+        }
+    }
+    
     func makeUIView(context: Context) -> WKWebView {
         let contentController = WKUserContentController()
         contentController.add(context.coordinator, name: "textChanged")
-        // TODO call user script and see that we get some result on the other side
+        contentController.addUserScript(WKUserScript(source: editorUiScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true))
         let config = WKWebViewConfiguration()
         config.userContentController = contentController
         return WKWebView(frame: .zero, configuration: config)
@@ -59,12 +62,12 @@ struct QuillEditor: UIViewRepresentable {
         if !loaded {
             webView.loadHTMLString(helloWorldHtml, baseURL: URL(fileURLWithPath: "/"))
         }
-        
-        let updateColoring = """
-        return true;
-        """
-        
-        webView.callAsyncJavaScript(updateColoring, in: nil, in: .defaultClient, completionHandler: onDoneUpdatingColoring(result:))
+
+//        let updateColoring = """
+//        return true;
+//        """
+//
+//        webView.callAsyncJavaScript(updateColoring, in: nil, in: .defaultClient, completionHandler: onDoneUpdatingColoring(result:))
     }
     
     func onDoneUpdatingColoring(result: Result<Any,Error>) {
@@ -84,10 +87,14 @@ class Coordinator: NSObject {
 
 extension Coordinator : WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        log("received message: \(message.name)")
+        
         guard let params = message.body as? NSDictionary else {
             log("couldn't parse params of message from javascript")
             return
         }
+        
+        log("params for message are: \(params)", level: .verbose)
         
         switch message.name {
         case "textChanged":
@@ -99,11 +106,11 @@ extension Coordinator : WKScriptMessageHandler {
                 log("couldn't parse oldContents")
                 return
             }
-            guard let source: Source = (params["source"] as? NSString)?.decode() else {
+            guard let source = params["source"] as? NSString else {
                 log("couldn't parse source")
                 return
             }
-            textChanged(delta: delta, oldContents: oldContents, source: source)
+            textChanged(delta: delta, oldContents: oldContents, source: Source(from: source))
         default:
             log("unsupported message type was received")
         }
@@ -111,6 +118,7 @@ extension Coordinator : WKScriptMessageHandler {
         
     private func textChanged(delta: Delta, oldContents: Delta, source: Source) {
         // TODO implement this method
+        log("receive textChanged event")
     }
 }
 

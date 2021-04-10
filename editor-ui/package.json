@@ -1,0 +1,22 @@
+{
+  "name": "editor-ui",
+  "version": "1.0.0",
+  "description": "Editor ui for mdwiki application",
+  "main": "init.js",
+  "scripts": {
+    "bundle": "mkdir -p out/ && browserify -p tinyify init.js -o out/editor-ui.js",
+    "clean": "rm -r out/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Devin Lehmacher",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "eslint": "^7.24.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "tinyify": "^3.0.0"
+  }
+}

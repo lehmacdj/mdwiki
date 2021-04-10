@@ -22,13 +22,3 @@ public extension NSArray {
         return try? decoder.decode(T.self, from: data)
     }
 }
-
-public extension NSString {
-    func decode<T : Decodable>() -> T? {
-        guard let data = self.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false) else {
-            return nil
-        }
-        let decoder = JSONDecoder()
-        return try? decoder.decode(T.self, from: data)
-    }
-}

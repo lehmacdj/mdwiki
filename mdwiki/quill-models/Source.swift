@@ -11,12 +11,24 @@ import Foundation
 enum Source {
     case user
     case other
+    
+    init(from string: String) {
+        switch string {
+        case "user":
+            self = .user
+        default:
+            self = .other
+        }
+    }
+    
+    init(from nsstring: NSString) {
+        self.init(from: String(nsstring))
+    }
 }
 
 extension Source: Decodable {
     init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        switch try container.decode(String.self) {
+        switch try String(from: decoder) {
         case "user":
             self = .user
         default:

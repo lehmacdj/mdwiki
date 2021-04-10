@@ -12,6 +12,7 @@
 		0355206F261EBD8A0071A0D1 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0355206E261EBD8A0071A0D1 /* Source.swift */; };
 		03552074261EC0FC0071A0D1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03552073261EC0FC0071A0D1 /* Utils.swift */; };
 		03552079261EC69F0071A0D1 /* NSExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03552078261EC69F0071A0D1 /* NSExtensions.swift */; };
+		035520AF262170880071A0D1 /* editor-ui.js in Resources */ = {isa = PBXBuildFile; fileRef = 035520AE262170880071A0D1 /* editor-ui.js */; };
 		035BBA3F25D4E862005892C9 /* pandoc_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 035BBA3D25D4E862005892C9 /* pandoc_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		035BBA4225D4E862005892C9 /* pandoc_types.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; };
 		035BBA4325D4E862005892C9 /* pandoc_types.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -91,6 +92,7 @@
 		0355206E261EBD8A0071A0D1 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		03552073261EC0FC0071A0D1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		03552078261EC69F0071A0D1 /* NSExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSExtensions.swift; sourceTree = "<group>"; };
+		035520AE262170880071A0D1 /* editor-ui.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "editor-ui.js"; path = "editor-ui/out/editor-ui.js"; sourceTree = "<group>"; };
 		035BBA3B25D4E862005892C9 /* pandoc_types.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = pandoc_types.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		035BBA3D25D4E862005892C9 /* pandoc_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pandoc_types.h; sourceTree = "<group>"; };
 		035BBA3E25D4E862005892C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		0377E52025B958FF0032EF46 = {
 			isa = PBXGroup;
 			children = (
+				035520AE262170880071A0D1 /* editor-ui.js */,
 				0377E53C25B9590B0032EF46 /* markdown-engine */,
 				0377E52B25B958FF0032EF46 /* mdwiki */,
 				035BBA3C25D4E862005892C9 /* pandoc-types */,
@@ -444,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0377E54D25B95EEE0032EF46 /* MobileFun.cabal in Resources */,
+				035520AF262170880071A0D1 /* editor-ui.js in Resources */,
 				0377E54C25B95EEE0032EF46 /* LICENSE in Resources */,
 				0377E54A25B95EEE0032EF46 /* call in Resources */,
 				0377E54B25B95EEE0032EF46 /* cabal.project in Resources */,

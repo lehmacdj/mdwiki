@@ -6,5 +6,4 @@
 //
 
 hs_init(nil, nil)
-print(toPandocAstString(markdown: shortMarkdown))
 mdwikiApp.main()
