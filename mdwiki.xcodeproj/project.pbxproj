@@ -27,7 +27,6 @@
 		0377E53125B959030032EF46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0377E53025B959030032EF46 /* Assets.xcassets */; };
 		0377E53425B959030032EF46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0377E53325B959030032EF46 /* Preview Assets.xcassets */; };
 		0377E54825B95EEE0032EF46 /* src in Resources */ = {isa = PBXBuildFile; fileRef = 0377E54225B95EED0032EF46 /* src */; };
-		0377E54925B95EEE0032EF46 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 0377E54325B95EED0032EF46 /* Makefile */; };
 		0377E54A25B95EEE0032EF46 /* call in Resources */ = {isa = PBXBuildFile; fileRef = 0377E54425B95EED0032EF46 /* call */; };
 		0377E54B25B95EEE0032EF46 /* cabal.project in Resources */ = {isa = PBXBuildFile; fileRef = 0377E54525B95EED0032EF46 /* cabal.project */; };
 		0377E54C25B95EEE0032EF46 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0377E54625B95EEE0032EF46 /* LICENSE */; };
@@ -118,7 +117,7 @@
 		0377E54625B95EEE0032EF46 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0377E54725B95EEE0032EF46 /* MobileFun.cabal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MobileFun.cabal; sourceTree = "<group>"; };
 		0377E54F25B95F450032EF46 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		0377E55325B95FDA0032EF46 /* libHSMobileFun.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHSMobileFun.a; path = "hs-src/binaries/iOS/libHSMobileFun.a"; sourceTree = "<group>"; };
+		0377E55325B95FDA0032EF46 /* libHSMobileFun.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHSMobileFun.a; path = "markdown-engine/binaries/iOS/libHSMobileFun.a"; sourceTree = "<group>"; };
 		0377E55825B960870032EF46 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		03C8CC8E25EE0DF100FBA4DF /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestData.swift; path = "pandoc-types-tests/TestData.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -204,7 +203,7 @@
 		0377E52025B958FF0032EF46 = {
 			isa = PBXGroup;
 			children = (
-				0377E53C25B9590B0032EF46 /* hs-src */,
+				0377E53C25B9590B0032EF46 /* markdown-engine */,
 				0377E52B25B958FF0032EF46 /* mdwiki */,
 				035BBA3C25D4E862005892C9 /* pandoc-types */,
 				035BBA6525D50B0D005892C9 /* utils */,
@@ -251,7 +250,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		0377E53C25B9590B0032EF46 /* hs-src */ = {
+		0377E53C25B9590B0032EF46 /* markdown-engine */ = {
 			isa = PBXGroup;
 			children = (
 				0377E54525B95EED0032EF46 /* cabal.project */,
@@ -261,7 +260,7 @@
 				0377E54725B95EEE0032EF46 /* MobileFun.cabal */,
 				0377E54225B95EED0032EF46 /* src */,
 			);
-			path = "hs-src";
+			path = "markdown-engine";
 			sourceTree = "<group>";
 		};
 		0377E55225B95FDA0032EF46 /* Frameworks */ = {
@@ -490,7 +489,6 @@
 				0355206F261EBD8A0071A0D1 /* Source.swift in Sources */,
 				0355206A261EBD070071A0D1 /* Delta.swift in Sources */,
 				03552074261EC0FC0071A0D1 /* Utils.swift in Sources */,
-				0377E54925B95EEE0032EF46 /* Makefile in Sources */,
 				0377E52F25B958FF0032EF46 /* ContentView.swift in Sources */,
 				035BBA4D25D50645005892C9 /* Commonmark.swift in Sources */,
 				0377E55025B95F450032EF46 /* main.swift in Sources */,
@@ -821,7 +819,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/hs-src/binaries/iOS",
+					"$(PROJECT_DIR)/markdown-engine/binaries/iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.lehmacdj.mdwiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -852,7 +850,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/hs-src/binaries/iOS",
+					"$(PROJECT_DIR)/markdown-engine/binaries/iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.lehmacdj.mdwiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
