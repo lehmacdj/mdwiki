@@ -1,4 +1,4 @@
-LIB=MobileFun
+LIB=markdown-engine
 
 ARCHIVE=libHS${LIB}
 

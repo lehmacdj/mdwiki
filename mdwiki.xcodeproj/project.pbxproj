@@ -28,7 +28,7 @@
 		0377E53125B959030032EF46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0377E53025B959030032EF46 /* Assets.xcassets */; };
 		0377E53425B959030032EF46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0377E53325B959030032EF46 /* Preview Assets.xcassets */; };
 		0377E55025B95F450032EF46 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0377E54F25B95F450032EF46 /* main.swift */; };
-		0377E55425B95FDA0032EF46 /* libHSMobileFun.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0377E55325B95FDA0032EF46 /* libHSMobileFun.a */; };
+		0377E55425B95FDA0032EF46 /* libHSmarkdown-engine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0377E55325B95FDA0032EF46 /* libHSmarkdown-engine.a */; };
 		0377E55925B960870032EF46 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0377E55825B960870032EF46 /* libiconv.tbd */; };
 		03C8CC8F25EE0DF100FBA4DF /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C8CC8E25EE0DF100FBA4DF /* TestData.swift */; };
 		03DA09E525DF8848007B5E7C /* pandoc_types.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; };
@@ -108,7 +108,7 @@
 		0377E53525B959030032EF46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0377E53D25B95E7D0032EF46 /* mdwiki-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mdwiki-Bridging-Header.h"; sourceTree = "<group>"; };
 		0377E54F25B95F450032EF46 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		0377E55325B95FDA0032EF46 /* libHSMobileFun.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHSMobileFun.a; path = "markdown-engine/binaries/iOS/libHSMobileFun.a"; sourceTree = "<group>"; };
+		0377E55325B95FDA0032EF46 /* libHSmarkdown-engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHSmarkdown-engine.a; path = "markdown-engine/binaries/iOS/libHSmarkdown-engine.a"; sourceTree = "<group>"; };
 		0377E55825B960870032EF46 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		03C8CC8E25EE0DF100FBA4DF /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestData.swift; path = "pandoc-types-tests/TestData.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -143,7 +143,7 @@
 			files = (
 				035BBA6B25D50B0D005892C9 /* utils.framework in Frameworks */,
 				0377E55925B960870032EF46 /* libiconv.tbd in Frameworks */,
-				0377E55425B95FDA0032EF46 /* libHSMobileFun.a in Frameworks */,
+				0377E55425B95FDA0032EF46 /* libHSmarkdown-engine.a in Frameworks */,
 				035BBA4225D4E862005892C9 /* pandoc_types.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,7 +245,7 @@
 			children = (
 				035520B9262172E90071A0D1 /* editor-ui.js */,
 				0377E55825B960870032EF46 /* libiconv.tbd */,
-				0377E55325B95FDA0032EF46 /* libHSMobileFun.a */,
+				0377E55325B95FDA0032EF46 /* libHSmarkdown-engine.a */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
