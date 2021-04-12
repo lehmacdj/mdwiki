@@ -2,7 +2,7 @@
   "name": "editor-ui",
   "version": "1.0.0",
   "description": "Editor ui for mdwiki application",
-  "main": "init.js",
+  "main": "main.js",
   "scripts": {
     "bundle": "mkdir -p out/ && browserify -p tinyify init.js -o out/editor-ui.js",
     "clean": "rm -r out/",
