@@ -13,6 +13,7 @@
 		03552074261EC0FC0071A0D1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03552073261EC0FC0071A0D1 /* Utils.swift */; };
 		03552079261EC69F0071A0D1 /* NSExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03552078261EC69F0071A0D1 /* NSExtensions.swift */; };
 		035520BA262172E90071A0D1 /* editor-ui.js in Resources */ = {isa = PBXBuildFile; fileRef = 035520B9262172E90071A0D1 /* editor-ui.js */; };
+		035644F22624182C0067632F /* mdwikiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035644F12624182C0067632F /* mdwikiTests.swift */; };
 		035BBA3F25D4E862005892C9 /* pandoc_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 035BBA3D25D4E862005892C9 /* pandoc_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		035BBA4225D4E862005892C9 /* pandoc_types.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; };
 		035BBA4325D4E862005892C9 /* pandoc_types.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -36,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		035644F42624182C0067632F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0377E52125B958FF0032EF46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0377E52825B958FF0032EF46;
+			remoteInfo = mdwiki;
+		};
 		035BBA4025D4E862005892C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0377E52125B958FF0032EF46 /* Project object */;
@@ -88,6 +96,9 @@
 		03552073261EC0FC0071A0D1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		03552078261EC69F0071A0D1 /* NSExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSExtensions.swift; sourceTree = "<group>"; };
 		035520B9262172E90071A0D1 /* editor-ui.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "editor-ui.js"; path = "editor-ui/out/editor-ui.js"; sourceTree = "<group>"; };
+		035644EF2624182C0067632F /* mdwikiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mdwikiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		035644F12624182C0067632F /* mdwikiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mdwikiTests.swift; sourceTree = "<group>"; };
+		035644F32624182C0067632F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		035BBA3B25D4E862005892C9 /* pandoc_types.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = pandoc_types.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		035BBA3D25D4E862005892C9 /* pandoc_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pandoc_types.h; sourceTree = "<group>"; };
 		035BBA3E25D4E862005892C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,12 +119,19 @@
 		0377E53525B959030032EF46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0377E53D25B95E7D0032EF46 /* mdwiki-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mdwiki-Bridging-Header.h"; sourceTree = "<group>"; };
 		0377E54F25B95F450032EF46 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		0377E55325B95FDA0032EF46 /* libHSmarkdown-engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHSmarkdown-engine.a; path = "markdown-engine/binaries/iOS/libHSmarkdown-engine.a"; sourceTree = "<group>"; };
+		0377E55325B95FDA0032EF46 /* libHSmarkdown-engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libHSmarkdown-engine.a"; path = "markdown-engine/binaries/iOS/libHSmarkdown-engine.a"; sourceTree = "<group>"; };
 		0377E55825B960870032EF46 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		03C8CC8E25EE0DF100FBA4DF /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestData.swift; path = "pandoc-types-tests/TestData.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		035644EC2624182C0067632F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		035BBA3825D4E862005892C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,6 +178,15 @@
 			path = "quill-models";
 			sourceTree = "<group>";
 		};
+		035644F02624182C0067632F /* mdwikiTests */ = {
+			isa = PBXGroup;
+			children = (
+				035644F12624182C0067632F /* mdwikiTests.swift */,
+				035644F32624182C0067632F /* Info.plist */,
+			);
+			path = mdwikiTests;
+			sourceTree = "<group>";
+		};
 		035BBA3C25D4E862005892C9 /* pandoc-types */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +225,7 @@
 				035BBA3C25D4E862005892C9 /* pandoc-types */,
 				035BBA6525D50B0D005892C9 /* utils */,
 				035BBA5425D50A85005892C9 /* pandoc-types-tests */,
+				035644F02624182C0067632F /* mdwikiTests */,
 				0377E52A25B958FF0032EF46 /* Products */,
 				0377E55225B95FDA0032EF46 /* Dependencies */,
 			);
@@ -210,6 +238,7 @@
 				035BBA3B25D4E862005892C9 /* pandoc_types.framework */,
 				035BBA5325D50A85005892C9 /* pandoc-types-tests.xctest */,
 				035BBA6425D50B0D005892C9 /* utils.framework */,
+				035644EF2624182C0067632F /* mdwikiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -272,6 +301,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		035644EE2624182C0067632F /* mdwikiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 035644F82624182C0067632F /* Build configuration list for PBXNativeTarget "mdwikiTests" */;
+			buildPhases = (
+				035644EB2624182C0067632F /* Sources */,
+				035644EC2624182C0067632F /* Frameworks */,
+				035644ED2624182C0067632F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				035644F52624182C0067632F /* PBXTargetDependency */,
+			);
+			name = mdwikiTests;
+			productName = mdwikiTests;
+			productReference = 035644EF2624182C0067632F /* mdwikiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		035BBA3A25D4E862005892C9 /* pandoc-types */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 035BBA4725D4E862005892C9 /* Build configuration list for PBXNativeTarget "pandoc-types" */;
@@ -356,6 +403,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					035644EE2624182C0067632F = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 0377E52825B958FF0032EF46;
+					};
 					035BBA3A25D4E862005892C9 = {
 						CreatedOnToolsVersion = 12.4;
 						LastSwiftMigration = 1240;
@@ -391,11 +442,19 @@
 				035BBA3A25D4E862005892C9 /* pandoc-types */,
 				035BBA5225D50A85005892C9 /* pandoc-types-tests */,
 				035BBA6325D50B0D005892C9 /* utils */,
+				035644EE2624182C0067632F /* mdwikiTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		035644ED2624182C0067632F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		035BBA3925D4E862005892C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,6 +489,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		035644EB2624182C0067632F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				035644F22624182C0067632F /* mdwikiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		035BBA3725D4E862005892C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -474,6 +541,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		035644F52624182C0067632F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0377E52825B958FF0032EF46 /* mdwiki */;
+			targetProxy = 035644F42624182C0067632F /* PBXContainerItemProxy */;
+		};
 		035BBA4125D4E862005892C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 035BBA3A25D4E862005892C9 /* pandoc-types */;
@@ -497,6 +569,46 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		035644F62624182C0067632F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YJTZ9H869C;
+				INFOPLIST_FILE = mdwikiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.lehmacdj.mdwikiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mdwiki.app/mdwiki";
+			};
+			name = Debug;
+		};
+		035644F72624182C0067632F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YJTZ9H869C;
+				INFOPLIST_FILE = mdwikiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.lehmacdj.mdwikiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mdwiki.app/mdwiki";
+			};
+			name = Release;
+		};
 		035BBA4525D4E862005892C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -837,6 +949,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		035644F82624182C0067632F /* Build configuration list for PBXNativeTarget "mdwikiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				035644F62624182C0067632F /* Debug */,
+				035644F72624182C0067632F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		035BBA4725D4E862005892C9 /* Build configuration list for PBXNativeTarget "pandoc-types" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

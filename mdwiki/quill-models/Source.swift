@@ -10,12 +10,15 @@ import Foundation
 /// A source for an event received from a quill event handler
 enum Source {
     case user
+    case api
     case other
     
     init(from string: String) {
         switch string {
         case "user":
             self = .user
+        case "api":
+            self = .api
         default:
             self = .other
         }

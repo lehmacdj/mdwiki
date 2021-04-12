@@ -8,13 +8,38 @@
 import Foundation
 
 /// Represents a Delta: https://quilljs.com/docs/delta/
-struct Delta: Decodable, Equatable {
+public struct Delta: Decodable, Equatable {
     let ops:  [Op]
+}
+
+enum AttributeValue: Equatable {
+    case bool(Bool)
+    case string(String)
+}
+
+extension AttributeValue: Decodable {
+    init(from decoder: Decoder) throws {
+        if let bool = try? Bool(from: decoder) {
+            self = .bool(bool)
+        } else if let string = try? String(from: decoder) {
+            self = .string(string)
+        } else {
+            throw DecodingError.dataCorrupted(
+                DecodingError.Context(
+                    codingPath: decoder.codingPath,
+                    debugDescription: "badly formed AttributeValue"))
+        }
+    }
 }
 
 struct Op: Equatable {
     let kind: OpKind
-    let attributes: [String:String]
+    let attributes: [String:AttributeValue]
+    
+    init(kind: OpKind, attributes: [String:AttributeValue] = [:]) {
+        self.kind = kind
+        self.attributes = attributes
+    }
 }
 
 enum OpKind: Equatable {
@@ -31,12 +56,11 @@ extension Op: Decodable {
         case attributes
     }
     
-    // TODO: write test for this decodable instance
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let insertVal = try container.decodeIfPresent(String.self, forKey: .insert)
         let deleteVal = try container.decodeIfPresent(Int.self, forKey: .delete)
-        let retainVal = try container.decodeIfPresent(Int.self, forKey: .delete)
+        let retainVal = try container.decodeIfPresent(Int.self, forKey: .retain)
         switch (insertVal, deleteVal, retainVal) {
         case (.some(let insertVal), nil, nil):
             self.kind = .insert(insertVal)
@@ -51,6 +75,6 @@ extension Op: Decodable {
                     debugDescription: "badly formed Delta.Op"))
         }
         
-        self.attributes = try container.decodeIfPresent([String:String].self, forKey: .attributes) ?? [:]
+        self.attributes = try container.decodeIfPresent([String:AttributeValue].self, forKey: .attributes) ?? [:]
     }
 }

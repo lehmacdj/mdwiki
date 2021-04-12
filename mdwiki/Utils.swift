@@ -11,15 +11,26 @@ import Foundation
 let logLevel = LogLevel.verbose
 
 /// Logging function to be abstracted out into a real logging framework later if that seems worth it
-func log(_ message : String, level: LogLevel = .info, _ callingFunction: String = #function) {
+func log(_ message: String, level: LogLevel = .info, callingFunction: String = #function) {
     if level >= logLevel {
         print("[\(Date())][\(callingFunction)][\(level)]: \(message)")
     }
 }
 
-enum LogLevel: Equatable, Comparable {
-    case verbose
-    case info
-    case warning
-    case error
+func warn(_ message: String, callingFunction: String = #function) {
+    log(message, level: .warning, callingFunction: callingFunction)
+}
+
+enum LogLevel: Int, Equatable {
+    case error = 1
+    case warning = 2
+    case info = 3
+    case verbose = 4
+}
+
+extension LogLevel: Comparable {
+    static func < (lhs: LogLevel, rhs: LogLevel) -> Bool {
+        // log level is less if it is less urgent
+        return lhs.rawValue > rhs.rawValue
+    }
 }

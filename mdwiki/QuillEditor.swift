@@ -52,6 +52,7 @@ struct QuillEditor: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
         let contentController = WKUserContentController()
         contentController.add(context.coordinator, name: "textChanged")
+        contentController.add(context.coordinator, name: "log")
         contentController.addUserScript(WKUserScript(source: editorUiScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true))
         let config = WKWebViewConfiguration()
         config.userContentController = contentController
@@ -87,7 +88,7 @@ class Coordinator: NSObject {
 
 extension Coordinator : WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        log("received message: \(message.name)")
+        log("received message: \(message.name)", level: .verbose)
         
         guard let params = message.body as? NSDictionary else {
             log("couldn't parse params of message from javascript")
@@ -99,20 +100,38 @@ extension Coordinator : WKScriptMessageHandler {
         switch message.name {
         case "textChanged":
             guard let delta: Delta = (params["delta"] as? NSDictionary)?.decode() else {
-                log("couldn't parse delta")
+                warn("couldn't parse delta")
                 return
             }
             guard let oldContents: Delta = (params["oldContents"] as? NSDictionary)?.decode() else {
-                log("couldn't parse oldContents")
+                warn("couldn't parse oldContents")
                 return
             }
             guard let source = params["source"] as? NSString else {
-                log("couldn't parse source")
+                warn("couldn't parse source")
                 return
             }
             textChanged(delta: delta, oldContents: oldContents, source: Source(from: source))
+        case "log":
+            guard let message = params["message"] as? NSString else {
+                warn("couldn't parse message")
+                return
+            }
+            let level: LogLevel
+            if let levelNumber = params["level"] as? Int {
+                if let levelOverride = LogLevel(rawValue: levelNumber) {
+                    level = levelOverride
+                } else {
+                    warn("invalid Int passed as level")
+                    level = .info
+                }
+            } else {
+                warn("bad value for level")
+                level = .info
+            }
+            log(String(message), level: level, callingFunction: "<javascript>")
         default:
-            log("unsupported message type was received")
+            warn("unsupported message type was received")
         }
     }
         

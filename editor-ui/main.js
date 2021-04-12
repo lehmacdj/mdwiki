@@ -5,16 +5,35 @@
 //  Created by Devin Lehmacher on 4/8/21.
 //
 
-window.webkit.messageHandlers.textChanged.postMessage({
-  delta: { ops: [] },
-  oldContents: { ops: [] },
-  source: 'user'
-})
+import Quill from 'quill'
 
-const Quill = require('./quill.js')
+function textChanged (delta, oldContents, source) {
+  window.webkit.messageHandlers.textChanged.postMessage({
+    delta: delta,
+    oldContents: oldContents,
+    source: source
+  })
+}
+
+const LogLevel = {
+  Error: 1,
+  Warning: 2,
+  Info: 3,
+  Verbose: 4
+}
+
+function log (message, level) {
+  level = level || LogLevel.Info
+  window.webkit.messageHandlers.log.postMessage({
+    message: message,
+    level: level
+  })
+}
 
 const quill = new Quill('#editor', {
   theme: 'snow'
 })
 
-console.log(quill)
+quill.on('text-change', textChanged)
+
+log('finished initializing quill editor successfully')
