@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		03552079261EC69F0071A0D1 /* NSExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03552078261EC69F0071A0D1 /* NSExtensions.swift */; };
 		035520BA262172E90071A0D1 /* editor-ui.js in Resources */ = {isa = PBXBuildFile; fileRef = 035520B9262172E90071A0D1 /* editor-ui.js */; };
 		035644F22624182C0067632F /* mdwikiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035644F12624182C0067632F /* mdwikiTests.swift */; };
+		0356450F2626A98A0067632F /* TextRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0356450E2626A98A0067632F /* TextRange.swift */; };
+		035645302626B4B20067632F /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 0356452F2626B4B20067632F /* Nimble */; };
 		035BBA3F25D4E862005892C9 /* pandoc_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 035BBA3D25D4E862005892C9 /* pandoc_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		035BBA4225D4E862005892C9 /* pandoc_types.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; };
 		035BBA4325D4E862005892C9 /* pandoc_types.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 035BBA3B25D4E862005892C9 /* pandoc_types.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -99,6 +101,7 @@
 		035644EF2624182C0067632F /* mdwikiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mdwikiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		035644F12624182C0067632F /* mdwikiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mdwikiTests.swift; sourceTree = "<group>"; };
 		035644F32624182C0067632F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0356450E2626A98A0067632F /* TextRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRange.swift; sourceTree = "<group>"; };
 		035BBA3B25D4E862005892C9 /* pandoc_types.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = pandoc_types.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		035BBA3D25D4E862005892C9 /* pandoc_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pandoc_types.h; sourceTree = "<group>"; };
 		035BBA3E25D4E862005892C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				035645302626B4B20067632F /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +191,14 @@
 			path = mdwikiTests;
 			sourceTree = "<group>";
 		};
+		0356450D2626A90A0067632F /* text-models */ = {
+			isa = PBXGroup;
+			children = (
+				0356450E2626A98A0067632F /* TextRange.swift */,
+			);
+			path = "text-models";
+			sourceTree = "<group>";
+		};
 		035BBA3C25D4E862005892C9 /* pandoc-types */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,10 +234,10 @@
 			isa = PBXGroup;
 			children = (
 				0377E52B25B958FF0032EF46 /* mdwiki */,
+				035644F02624182C0067632F /* mdwikiTests */,
 				035BBA3C25D4E862005892C9 /* pandoc-types */,
 				035BBA6525D50B0D005892C9 /* utils */,
 				035BBA5425D50A85005892C9 /* pandoc-types-tests */,
-				035644F02624182C0067632F /* mdwikiTests */,
 				0377E52A25B958FF0032EF46 /* Products */,
 				0377E55225B95FDA0032EF46 /* Dependencies */,
 			);
@@ -255,6 +267,7 @@
 				0377E54F25B95F450032EF46 /* main.swift */,
 				035BBA4C25D50645005892C9 /* Commonmark.swift */,
 				0314AD5425FDE1760033722A /* QuillEditor.swift */,
+				0356450D2626A90A0067632F /* text-models */,
 				03552068261EBCD80071A0D1 /* quill-models */,
 				03552073261EC0FC0071A0D1 /* Utils.swift */,
 			);
@@ -315,6 +328,9 @@
 				035644F52624182C0067632F /* PBXTargetDependency */,
 			);
 			name = mdwikiTests;
+			packageProductDependencies = (
+				0356452F2626B4B20067632F /* Nimble */,
+			);
 			productName = mdwikiTests;
 			productReference = 035644EF2624182C0067632F /* mdwikiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -390,6 +406,8 @@
 				035BBA6A25D50B0D005892C9 /* PBXTargetDependency */,
 			);
 			name = mdwiki;
+			packageProductDependencies = (
+			);
 			productName = mdwiki;
 			productReference = 0377E52925B958FF0032EF46 /* mdwiki.app */;
 			productType = "com.apple.product-type.application";
@@ -434,6 +452,9 @@
 				Base,
 			);
 			mainGroup = 0377E52025B958FF0032EF46;
+			packageReferences = (
+				0356452E2626B4B20067632F /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 0377E52A25B958FF0032EF46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -532,6 +553,7 @@
 				03552074261EC0FC0071A0D1 /* Utils.swift in Sources */,
 				0377E52F25B958FF0032EF46 /* ContentView.swift in Sources */,
 				035BBA4D25D50645005892C9 /* Commonmark.swift in Sources */,
+				0356450F2626A98A0067632F /* TextRange.swift in Sources */,
 				0377E55025B95F450032EF46 /* main.swift in Sources */,
 				0314AD5525FDE1760033722A /* QuillEditor.swift in Sources */,
 				0377E52D25B958FF0032EF46 /* mdwikiApp.swift in Sources */,
@@ -1004,6 +1026,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0356452E2626B4B20067632F /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0356452F2626B4B20067632F /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0356452E2626B4B20067632F /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0377E52125B958FF0032EF46 /* Project object */;
 }

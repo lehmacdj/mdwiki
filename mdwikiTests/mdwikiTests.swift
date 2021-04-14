@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Nimble
 import utils
 @testable import mdwiki
 
@@ -42,5 +43,23 @@ class mdwikiTests: XCTestCase {
             Op(kind: .insert(" Hi!"))
         ])
         XCTAssertEqual(actual, expected)
+    }
+    
+    func test_textRangeDecode() throws {
+        let json = """
+        {
+            "index": 42,
+            "length": 91
+        }
+        """
+        let actual: TextRange = json.decode()!
+        let expected = TextRange(index: 42, length: 91)
+        XCTAssertEqual(actual, expected)
+    }
+    
+    func test_logLevels_orderedByUrgency() throws {
+        expect(LogLevel.verbose) < LogLevel.info
+        expect(LogLevel.info) < LogLevel.warning
+        expect(LogLevel.warning) < LogLevel.error
     }
 }

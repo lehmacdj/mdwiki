@@ -52,6 +52,7 @@ struct QuillEditor: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
         let contentController = WKUserContentController()
         contentController.add(context.coordinator, name: "textChanged")
+        contentController.add(context.coordinator, name: "selectionChanged")
         contentController.add(context.coordinator, name: "log")
         contentController.addUserScript(WKUserScript(source: editorUiScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true))
         let config = WKWebViewConfiguration()
@@ -112,6 +113,20 @@ extension Coordinator : WKScriptMessageHandler {
                 return
             }
             textChanged(delta: delta, oldContents: oldContents, source: Source(from: source))
+        case "selectionChanged":
+            guard let range: TextRange = (params["range"] as? NSDictionary)?.decode() else {
+                warn("couldn't parse range")
+                return
+            }
+            guard let oldRange: TextRange = (params["oldRange"] as? NSDictionary)?.decode() else {
+                warn("coudln't parse oldRange")
+                return
+            }
+            guard let source = params["source"] as? NSString else {
+                warn("couldn't parse source")
+                return
+            }
+            selectionChanged(range: range, oldRange: oldRange, source: Source(from: source))
         case "log":
             guard let message = params["message"] as? NSString else {
                 warn("couldn't parse message")
@@ -137,7 +152,12 @@ extension Coordinator : WKScriptMessageHandler {
         
     private func textChanged(delta: Delta, oldContents: Delta, source: Source) {
         // TODO implement this method
-        log("receive textChanged event")
+        log("receive textChanged event", level: .verbose)
+    }
+    
+    private func selectionChanged(range: TextRange, oldRange: TextRange, source: Source) {
+        // TODO implement this method
+        log("receive selectionChanged event", level: .verbose)
     }
 }
 

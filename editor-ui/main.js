@@ -15,6 +15,14 @@ function textChanged (delta, oldContents, source) {
   })
 }
 
+function selectionChanged (range, oldRange, source) {
+  window.webkit.messageHandlers.selectionChanged.postMessage({
+    range: range,
+    oldRange: oldRange,
+    source: source
+  })
+}
+
 const LogLevel = {
   Error: 1,
   Warning: 2,
@@ -35,5 +43,6 @@ const quill = new Quill('#editor', {
 })
 
 quill.on('text-change', textChanged)
+quill.on('selection-change', selectionChanged)
 
 log('finished initializing quill editor successfully')
